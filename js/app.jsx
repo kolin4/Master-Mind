@@ -70,15 +70,47 @@ reset = (e)=>{
 }
 check = (e) =>{
     if ( this.state.answerNumber == 0 ){
-        const userAnswer = this.state.answers.answer1;
-        const tabResult = this.state.tabResult;
+        const userAnswer = this.state.answers.answer1.slice();
+        const tabResult = this.state.tabResult.slice();
 
 
+
+        let resultTab = this.state.checked.check1;
+        if ( tabResult[0] == userAnswer[0] ){
+            resultTab.push('black miniCircle');
+
+        } else if ( tabResult.indexOf(userAnswer[0]) != -1) {
+            resultTab.push('cross miniCircle');
+        }
+
+         if ( tabResult[1] == userAnswer[1] ) {
+            resultTab.push('black miniCircle');
+        } else if ( tabResult.indexOf(userAnswer[1]) != -1) {
+            resultTab.push('cross miniCircle');
+        }
+
+         if ( tabResult[2] == userAnswer[2] ) {
+            resultTab.push('black miniCircle');
+        } else if ( tabResult.indexOf(userAnswer[2]) != -1) {
+            resultTab.push('cross miniCircle');
+        }
+
+        if ( tabResult[3] == userAnswer[3] ) {
+            resultTab.push('black miniCircle');
+        } else if ( tabResult.indexOf(userAnswer[3]) != -1) {
+            resultTab.push('cross miniCircle');
+        }
+
+        resultTab.splice(0,4);
+        this.setState({
+            answerNumber:1,
+            counter1:0
+        })
 
 
         console.log(tabResult);
         console.log(userAnswer);
-
+        console.log(resultTab);
     }
 
 }
@@ -87,24 +119,39 @@ check = (e) =>{
 
 takeColor = (e)=>{
 
-    let counter1 = this.state.counter1;
+    let counter1= this.state.counter1;
     if ( this.state.answerNumber == 0 ){
-
         const answers = this.state.answers.answer1;
+
 
         if (answers.indexOf(e.target.dataset.color) == -1 ) {
             answers.splice(counter1,1);
             answers.splice(this.state.counter1,0, e.target.dataset.color);
             counter1++;
 
+            this.forceUpdate();
+            answers.splice(4);
         }
-        answers.splice(4);
 
-}
+
+    } else if ( this.state.answerNumber == 1 ){
+        const answers = this.state.answers.answer2;
+
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+
+
+    }
 
 this.setState({
-    counter1,
-
+    counter1
 })
 }
 
