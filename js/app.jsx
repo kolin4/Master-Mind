@@ -68,14 +68,19 @@ start = (e) =>{
 reset = (e)=>{
     console.log('reset');
 }
-check = (e) =>{
+check = (e) => {
+    const userAnswer = this.state.answers.answer1.slice();
+    const tabResult = this.state.tabResult.slice();
     if ( this.state.answerNumber == 0 ){
-        const userAnswer = this.state.answers.answer1.slice();
-        const tabResult = this.state.tabResult.slice();
+        const resultTab = this.state.checked.check1;
+        name(resultTab);
+    } else if ( this.state.answerNumber == 1 ){
+        const resultTab = this.state.checked.check2;
+        name(resultTab);
+    }
 
-
-
-        let resultTab = this.state.checked.check1;
+    function name(tab) {
+        let resultTab = tab;
         if ( tabResult[0] == userAnswer[0] ){
             resultTab.push('black miniCircle');
 
@@ -102,16 +107,12 @@ check = (e) =>{
         }
 
         resultTab.splice(0,4);
-        this.setState({
-            answerNumber:1,
-            counter1:0
-        })
-
-
-        console.log(tabResult);
-        console.log(userAnswer);
-        console.log(resultTab);
     }
+    this.setState({
+        answerNumber:1,
+        counter1:0
+    })
+
 
 }
 
