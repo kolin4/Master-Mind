@@ -12,10 +12,10 @@ class Answer extends React.Component{
                     <div className={this.props.class[3]}></div>
                 </div>
                 <div className="checked">
-                    <div className="miniCircle"></div>
-                    <div className="miniCircle"></div>
-                    <div className="miniCircle"></div>
-                    <div className ="miniCircle"></div>
+                    <div className={this.props.checked[0]}></div>
+                    <div className={this.props.checked[1]}></div>
+                    <div className={this.props.checked[2]}></div>
+                    <div className ={this.props.checked[3]}></div>
                 </div>
             </div>
         )

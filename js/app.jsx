@@ -15,23 +15,39 @@ class App extends React.Component{
                 disabledReset:true,
                 disabledCheck:true,
                 answerNumber:0,
-                answer1: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer2: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer3: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer4: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer5: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer6: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer7: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer8: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer9: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
-                answer10: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                answers: {
+                    answer1: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer2: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer3: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer4: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer5: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer6: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer7: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer8: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer9: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+                    answer10: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer']
+
+                },
+                checked: {
+                    check1: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check2: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check3: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check4: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check5: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check6: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check7: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check8: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check9: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+                    check10: ['miniCircle','miniCircle','miniCircle','miniCircle']
+                },
                 counter1:0,
+
 
             }
     }
 
 start = (e) =>{
-    const tabColor = ['red', 'yellow','blue','green','orange','brown'];
+    const tabColor = ['red circleAnswer', 'yellow circleAnswer','blue circleAnswer','green circleAnswer','orange circleAnswer','brown circleAnswer'];
     const tabRandom = [];
     while (tabRandom.length < 4){
         let randomColor = tabColor[Math.floor(Math.random()* (6-0))];
@@ -53,7 +69,17 @@ reset = (e)=>{
     console.log('reset');
 }
 check = (e) =>{
-    console.log('check');
+    if ( this.state.answerNumber == 0 ){
+        const userAnswer = this.state.answers.answer1;
+        const tabResult = this.state.tabResult;
+
+
+
+
+        console.log(tabResult);
+        console.log(userAnswer);
+
+    }
 
 }
 
@@ -61,27 +87,30 @@ check = (e) =>{
 
 takeColor = (e)=>{
 
+    let counter1 = this.state.counter1;
     if ( this.state.answerNumber == 0 ){
 
-        const answer1 = this.state.answer1;
-        let counter1 = this.state.counter1;
-        if (answer1.indexOf(e.target.dataset.color) == -1 ) {
-            answer1.splice(counter1,1);
-            answer1.splice(this.state.counter1,0, e.target.dataset.color);
+        const answers = this.state.answers.answer1;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
             counter1++;
+
         }
-        answer1.splice(4);
-        console.log(answer1);
-        this.setState({
-            answer1,
-            counter1
-    })
+        answers.splice(4);
+
 }
+
+this.setState({
+    counter1,
+
+})
 }
 
 render(){
 
-    console.log(this.state.tabResult);
+
     return (
         <div className='container'>
             <Title />
@@ -98,16 +127,16 @@ render(){
                 <Circle action={this.takeColor} class='circle orange' color='orange circleAnswer'/>
                 <Circle action={this.takeColor} class='circle brown' color='brown circleAnswer'/>
             </div>
-                <Answer class={this.state.answer1}/>
-                <Answer class={this.state.answer2}/>
-                <Answer class={this.state.answer3}/>
-                <Answer class={this.state.answer4}/>
-                <Answer class={this.state.answer5}/>
-                <Answer class={this.state.answer6}/>
-                <Answer class={this.state.answer7}/>
-                <Answer class={this.state.answer8}/>
-                <Answer class={this.state.answer9}/>
-                <Answer class={this.state.answer10}/>
+                <Answer checked={this.state.checked.check1} class={this.state.answers.answer1}/>
+                <Answer checked={this.state.checked.check2} class={this.state.answers.answer2}/>
+                <Answer checked={this.state.checked.check3} class={this.state.answers.answer3}/>
+                <Answer checked={this.state.checked.check4} class={this.state.answers.answer4}/>
+                <Answer checked={this.state.checked.check5} class={this.state.answers.answer5}/>
+                <Answer checked={this.state.checked.check6} class={this.state.answers.answer6}/>
+                <Answer checked={this.state.checked.check7} class={this.state.answers.answer7}/>
+                <Answer checked={this.state.checked.check8} class={this.state.answers.answer8}/>
+                <Answer checked={this.state.checked.check9} class={this.state.answers.answer9}/>
+                <Answer checked={this.state.checked.check10} class={this.state.answers.answer10}/>
         </div>
     )
 }
