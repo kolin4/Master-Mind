@@ -131,3 +131,10 @@
     border: 1px solid black;
 
 }
+
+.black {
+    background-color: black;
+}
+.cross {
+    background-color: white;
+}

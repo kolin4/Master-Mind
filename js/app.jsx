@@ -14,7 +14,7 @@ class App extends React.Component{
                 disabledStart: false,
                 disabledReset:true,
                 disabledCheck:true,
-                answerNumber:0,
+                answerNumber:1,
                 answers: {
                     answer1: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
                     answer2: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
@@ -59,7 +59,7 @@ start = (e) =>{
         tabResult:tabRandom,
         disabledStart: true,
         disabledReset:false,
-        disabledCheck:false,
+        disabledCheck:true,
 
     })
 
@@ -67,50 +67,101 @@ start = (e) =>{
 }
 reset = (e)=>{
     console.log('reset');
+    let answerNumber = this.state.answerNumber;
+    if ( answerNumber == 1 ){
+        this.state.answers.answer1 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+    }
 }
 check = (e) => {
-    const userAnswer = this.state.answers.answer1.slice();
     const tabResult = this.state.tabResult.slice();
-    if ( this.state.answerNumber == 0 ){
+    if ( this.state.answerNumber == 1 ){
+        const userAnswer = this.state.answers.answer1.slice();
         const resultTab = this.state.checked.check1;
-        name(resultTab);
-    } else if ( this.state.answerNumber == 1 ){
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 2 ){
+        const userAnswer = this.state.answers.answer2.slice();
         const resultTab = this.state.checked.check2;
-        name(resultTab);
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 3 ){
+        const userAnswer = this.state.answers.answer3.slice();
+        const resultTab = this.state.checked.check3;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 4 ){
+        const userAnswer = this.state.answers.answer4.slice();
+        const resultTab = this.state.checked.check4;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 5 ){
+        const userAnswer = this.state.answers.answer5.slice();
+        const resultTab = this.state.checked.check5;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 6 ){
+        const userAnswer = this.state.answers.answer6.slice();
+        const resultTab = this.state.checked.check6;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 7 ){
+        const userAnswer = this.state.answers.answer7.slice();
+        const resultTab = this.state.checked.check7;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 8 ){
+        const userAnswer = this.state.answers.answer8.slice();
+        const resultTab = this.state.checked.check8;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 9 ){
+        const userAnswer = this.state.answers.answer9.slice();
+        const resultTab = this.state.checked.check9;
+        name(resultTab, userAnswer);
+    } else if ( this.state.answerNumber == 10 ){
+        const userAnswer = this.state.answers.answer10.slice();
+        const resultTab = this.state.checked.check10;
+        name(resultTab, userAnswer);
     }
 
-    function name(tab) {
-        let resultTab = tab;
-        if ( tabResult[0] == userAnswer[0] ){
+    function name(resTab, usrAns) {
+        let resultTab = resTab;
+        let userAnswer = usrAns;
+        if ((  tabResult[0] == userAnswer[0] ) && (  tabResult[1] == userAnswer[1] ) && (  tabResult[2] == userAnswer[2] ) && ( tabResult[3] == userAnswer[3] )){
+            alert('WYGRALES !!!');
+        }
+
+         if ( tabResult[0] == userAnswer[0] ){
             resultTab.push('black miniCircle');
 
         } else if ( tabResult.indexOf(userAnswer[0]) != -1) {
             resultTab.push('cross miniCircle');
+        } else {
+            resultTab.push('miniCircle');
         }
 
          if ( tabResult[1] == userAnswer[1] ) {
             resultTab.push('black miniCircle');
         } else if ( tabResult.indexOf(userAnswer[1]) != -1) {
             resultTab.push('cross miniCircle');
+        } else {
+            resultTab.push('miniCircle');
         }
 
          if ( tabResult[2] == userAnswer[2] ) {
             resultTab.push('black miniCircle');
         } else if ( tabResult.indexOf(userAnswer[2]) != -1) {
             resultTab.push('cross miniCircle');
+        } else {
+            resultTab.push('miniCircle');
         }
 
         if ( tabResult[3] == userAnswer[3] ) {
             resultTab.push('black miniCircle');
         } else if ( tabResult.indexOf(userAnswer[3]) != -1) {
             resultTab.push('cross miniCircle');
+        } else {
+            resultTab.push('miniCircle');
         }
 
         resultTab.splice(0,4);
     }
     this.setState({
-        answerNumber:1,
-        counter1:0
+        answerNumber:this.state.answerNumber + 1,
+        counter1:0,
+        disabledCheck:true
     })
 
 
@@ -121,10 +172,9 @@ check = (e) => {
 takeColor = (e)=>{
 
     let counter1= this.state.counter1;
-    if ( this.state.answerNumber == 0 ){
+    if ( this.state.answerNumber == 1 ){
         const answers = this.state.answers.answer1;
 
-
         if (answers.indexOf(e.target.dataset.color) == -1 ) {
             answers.splice(counter1,1);
             answers.splice(this.state.counter1,0, e.target.dataset.color);
@@ -133,11 +183,19 @@ takeColor = (e)=>{
             this.forceUpdate();
             answers.splice(4);
         }
-
-
-    } else if ( this.state.answerNumber == 1 ){
+    } else if ( this.state.answerNumber == 2 ){
         const answers = this.state.answers.answer2;
 
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 3 ){
+        const answers = this.state.answers.answer3;
 
         if (answers.indexOf(e.target.dataset.color) == -1 ) {
             answers.splice(counter1,1);
@@ -147,12 +205,91 @@ takeColor = (e)=>{
             this.forceUpdate();
             answers.splice(4);
         }
+    } else if ( this.state.answerNumber == 4 ){
+        const answers = this.state.answers.answer4;
 
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
 
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 5 ){
+        const answers = this.state.answers.answer5;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 6 ){
+        const answers = this.state.answers.answer6;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 7 ){
+        const answers = this.state.answers.answer7;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 8 ){
+        const answers = this.state.answers.answer8;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 9 ){
+        const answers = this.state.answers.answer9;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
+    } else if ( this.state.answerNumber == 10 ){
+        const answers = this.state.answers.answer10;
+
+        if (answers.indexOf(e.target.dataset.color) == -1 ) {
+            answers.splice(counter1,1);
+            answers.splice(this.state.counter1,0, e.target.dataset.color);
+            counter1++;
+
+            this.forceUpdate();
+            answers.splice(4);
+        }
     }
-
+let disabledCheck = this.state.disabledCheck;
+if ( this.state.counter1 >= 3 ){
+    disabledCheck = false;
+}
 this.setState({
-    counter1
+    counter1,
+    disabledCheck
 })
 }
 
@@ -163,8 +300,8 @@ render(){
         <div className='container'>
             <Title />
             <div className='mainBtn'>
-                <Button disabled={this.state.disabledStart} action={this.start} name='Start' />
-                <Button disabled={this.state.disabledReset} action={this.reset} name= 'Reset' />
+                <Button disabled={this.state.disabledStart} action={this.start} name='New Game' />
+                <Button disabled={this.state.disabledReset} action={this.reset} name= 'Reset line' />
                 <Button disabled={this.state.disabledCheck} action={this.check} name='Check' />
             </div>
             <div className='chooseBox'>
