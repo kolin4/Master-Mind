@@ -55,21 +55,87 @@ start = (e) =>{
             tabRandom.push(randomColor);
         }
     }
+
     this.setState({
         tabResult:tabRandom,
-        disabledStart: true,
+        disabledStart: false,
         disabledReset:false,
         disabledCheck:true,
+        answerNumber:1,
+        answers: {
+            answer1: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer2: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer3: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer4: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer5: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer6: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer7: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer8: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer9: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
+            answer10: ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer']
 
+        },
+        checked: {
+            check1: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check2: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check3: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check4: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check5: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check6: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check7: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check8: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check9: ['miniCircle','miniCircle','miniCircle','miniCircle'],
+            check10: ['miniCircle','miniCircle','miniCircle','miniCircle']
+        },
+        counter1:0,
     })
 
 
 }
 reset = (e)=>{
-    console.log('reset');
+
     let answerNumber = this.state.answerNumber;
+
     if ( answerNumber == 1 ){
         this.state.answers.answer1 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    } else if ( answerNumber == 2 ){
+        this.state.answers.answer2 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 3 ){
+        this.state.answers.answer3 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 4 ){
+        this.state.answers.answer4 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 5 ){
+        this.state.answers.answer5 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 6 ){
+        this.state.answers.answer6 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 7 ){
+        this.state.answers.answer7 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 8 ){
+        this.state.answers.answer8 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 9 ){
+        this.state.answers.answer9 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
+    }  else if ( answerNumber == 10 ){
+        this.state.answers.answer10 = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+        this.state.counter1 = 0;
+        this.forceUpdate();
     }
 }
 check = (e) => {
@@ -119,44 +185,122 @@ check = (e) => {
     function name(resTab, usrAns) {
         let resultTab = resTab;
         let userAnswer = usrAns;
-        if ((  tabResult[0] == userAnswer[0] ) && (  tabResult[1] == userAnswer[1] ) && (  tabResult[2] == userAnswer[2] ) && ( tabResult[3] == userAnswer[3] )){
-            alert('WYGRALES !!!');
-        }
-
+        resultTab.splice(0,4);
          if ( tabResult[0] == userAnswer[0] ){
-            resultTab.push('black miniCircle');
+             let num = Math.random();
+
+             if ( num < 0.5 ) {
+                resultTab.push('black miniCircle');
+             } else {
+                resultTab.unshift('black miniCircle');
+             }
 
         } else if ( tabResult.indexOf(userAnswer[0]) != -1) {
-            resultTab.push('cross miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.unshift('cross miniCircle');
+            } else {
+               resultTab.push('cross miniCircle');
+            }
+
         } else {
-            resultTab.push('miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.push('miniCircle');
+            } else {
+               resultTab.unshift('miniCircle');
+            }
         }
 
          if ( tabResult[1] == userAnswer[1] ) {
-            resultTab.push('black miniCircle');
+             let num = Math.random();
+             if ( num < 0.5 ) {
+                resultTab.unshift('black miniCircle');
+             } else {
+                resultTab.push('black miniCircle');
+             }
         } else if ( tabResult.indexOf(userAnswer[1]) != -1) {
-            resultTab.push('cross miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.unshift('cross miniCircle');
+            } else {
+               resultTab.push('cross miniCircle');
+            }
+
         } else {
-            resultTab.push('miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.unshift('miniCircle');
+            } else {
+               resultTab.push('miniCircle');
+            }
         }
 
          if ( tabResult[2] == userAnswer[2] ) {
-            resultTab.push('black miniCircle');
+             let num = Math.random();
+             if ( num < 0.5 ) {
+                resultTab.unshift('black miniCircle');
+             } else {
+                resultTab.unshift('black miniCircle');
+             }
         } else if ( tabResult.indexOf(userAnswer[2]) != -1) {
-            resultTab.push('cross miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.push('cross miniCircle');
+            } else {
+               resultTab.push('cross miniCircle');
+            }
         } else {
-            resultTab.push('miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.unshift('miniCircle');
+            } else {
+               resultTab.push('miniCircle');
+            }
         }
 
         if ( tabResult[3] == userAnswer[3] ) {
-            resultTab.push('black miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.push('black miniCircle');
+            } else {
+               resultTab.push('black miniCircle');
+            }
         } else if ( tabResult.indexOf(userAnswer[3]) != -1) {
-            resultTab.push('cross miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.unshift('cross miniCircle');
+            } else {
+               resultTab.push('cross miniCircle');
+            }
         } else {
-            resultTab.push('miniCircle');
+            let num = Math.random();
+            if ( num < 0.5 ) {
+               resultTab.push('miniCircle');
+            } else {
+               resultTab.unshift('miniCircle');
+            }
         }
 
-        resultTab.splice(0,4);
+        if ((  tabResult[0] == userAnswer[0] ) && (  tabResult[1] == userAnswer[1] ) && (  tabResult[2] == userAnswer[2] ) && ( tabResult[3] == userAnswer[3] )){
+            alert('WYGRALES !!!');
+            resultTab.unshift('black miniCircle');
+            resultTab.unshift('black miniCircle');
+            resultTab.unshift('black miniCircle');
+            resultTab.unshift('black miniCircle');
+        }
+        function mixArray(arr) {
+                for (var i=0; i<arr.length; i++) { //wykonujemy pętlę po całej tablicy
+                        var j = Math.floor(Math.random() * arr.length); //losujemy wartość z przedziału 0 - tablica.length-1
+                        var temp = arr[i]; //pod zmienną temp podstawiamy wartość bieżącego indexu
+                        arr[i] = arr[j]; //pod bieżący index podstawiamy wartość z indexu wylosowanego
+                        arr[j] = temp; //pod wylosowany podstawiamy wartość z bieżącego indexu
+                    }
+                    return arr;
+                }
+
+
+                mixArray(resultTab) ;
     }
     this.setState({
         answerNumber:this.state.answerNumber + 1,
@@ -294,7 +438,6 @@ this.setState({
 }
 
 render(){
-
 
     return (
         <div className='container'>
