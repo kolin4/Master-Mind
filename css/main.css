@@ -3,6 +3,66 @@
     margin: 0;
     padding: 0;
 }
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?88112963');
+  src: url('../font/fontello.eot?88112963#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?88112963') format('woff2'),
+       url('../font/fontello.woff?88112963') format('woff'),
+       url('../font/fontello.ttf?88112963') format('truetype'),
+       url('../font/fontello.svg?88112963#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?88112963#fontello') format('svg');
+  }
+}
+*/
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-github-circled:before { content: '\f09b'; } /* '' */
+.icon-linkedin:before { content: '\f0e1'; } /* '' */
+
 #appTemp {
     width: 40%;
     height: 100vh;
@@ -10,7 +70,7 @@
 
 }
 #appReact {
-    width: 40%;
+    width: 25%;
     height: 100vh;
     /*border: 5px solid black;*/
     background-color: beige;
@@ -35,33 +95,57 @@
 
 .m{
     background-color: red;
-    padding: 5px;
+    padding: 10px;
     color: white;
+    transition: 0.4s;
+}
+.m:hover{
+    transform: scale(1.3);
 }
 .a {
     background-color: yellow;
-    padding: 5px;
+    padding: 7px;
     color: black;
+    transition: 0.4s;
+}
+.a:hover{
+    transform: scale(1.3);
 }
 .s {
     background-color: blue;
-    padding: 5px;
+    padding: 10px;
     color: white;
+    transition: 0.4s;
+}
+.s:hover{
+    transform: scale(1.3);
 }
 .t{
     background-color: green;
-    padding: 5px;
+    padding: 7px;
     color: white;
+    transition: 0.4s;
+}
+.t:hover{
+    transform: scale(1.3);
 }
 .e {
     background-color: orange;
-    padding: 5px;
+    padding: 10px;
     color: white;
+    transition: 0.4s;
+}
+.e:hover{
+    transform: scale(1.3);
 }
 .r{
     background-color: brown;
-    padding: 5px;
+    padding: 6px;
     color: white;
+    transition: 0.4s;
+}
+.r:hover{
+    transform: scale(1.3);
 }
 
 .text {
@@ -69,11 +153,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 .social {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 20%;
 }
 
 /* button component*/
@@ -87,8 +173,13 @@
     border-radius: 5px;
     outline: none;
     font-weight: bold;
+    background-color: whitesmoke;
+    transition: 0.5s;
 }
-
+.mainBtn>button:hover{
+    background-color: rgb(190, 142, 157);
+    color: white;
+}
 
 /* choose Box Component*/
 
@@ -110,6 +201,10 @@
     border-radius: 50%;
     height: 25px;
     width: 25px;
+    transition: 0.2s;
+}
+.circle:hover{
+    transform: scale(1.3);
 }
 .red{
     background-color: red;
@@ -154,6 +249,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: 5px;
 
     background-color:#c9cac4;
 }
@@ -173,4 +269,17 @@
 }
 .focus {
     border-style: dashed;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 30px;
+    margin-top: 20px;
+}
+.socialIcon{
+    transition: 0.4s;
+}
+.socialIcon:hover{
+    transform: scale(1.3);
 }

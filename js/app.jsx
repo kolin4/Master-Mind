@@ -699,6 +699,10 @@ render(){
                 <Answer action={this.click} disabled={this.state.delItems8} checked={this.state.checked.check8} class={this.state.answers.answer8}/>
                 <Answer action={this.click} disabled={this.state.delItems9} checked={this.state.checked.check9} class={this.state.answers.answer9}/>
                 <Answer action={this.click} disabled={this.state.delItems10} checked={this.state.checked.check10} class={this.state.answers.answer10}/>
+            <div className='footer'>
+                <a className='socialIcon' href='https://github.com/kolin4'><i className="icon-github-circled"></i></a>
+                <a className='socialIcon'  href='https://www.linkedin.com/in/krzysztof-kolacz/'><i className="icon-linkedin"></i></a>
+                </div>
         </div>
     )
 }

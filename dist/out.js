@@ -10796,7 +10796,21 @@ var App = function (_React$Component) {
                 _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems7, checked: this.state.checked.check7, 'class': this.state.answers.answer7 }),
                 _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems8, checked: this.state.checked.check8, 'class': this.state.answers.answer8 }),
                 _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems9, checked: this.state.checked.check9, 'class': this.state.answers.answer9 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems10, checked: this.state.checked.check10, 'class': this.state.answers.answer10 })
+                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems10, checked: this.state.checked.check10, 'class': this.state.answers.answer10 }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'footer' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'socialIcon', href: 'https://github.com/kolin4' },
+                        _react2.default.createElement('i', { className: 'icon-github-circled' })
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'socialIcon', href: 'https://www.linkedin.com/in/krzysztof-kolacz/' },
+                        _react2.default.createElement('i', { className: 'icon-linkedin' })
+                    )
+                )
             );
         }
     }]);
@@ -23313,13 +23327,41 @@ var Title = function (_React$Component) {
                 _react2.default.createElement(
                     "div",
                     { className: "text" },
-                    "Master Mind"
+                    _react2.default.createElement(
+                        "span",
+                        { className: "m" },
+                        "M"
+                    ),
+                    " ",
+                    _react2.default.createElement(
+                        "span",
+                        { className: "a" },
+                        "A"
+                    ),
+                    " ",
+                    _react2.default.createElement(
+                        "span",
+                        { className: "s" },
+                        "S"
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "t" },
+                        "T"
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "e" },
+                        "E"
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "r" },
+                        "R"
+                    ),
+                    "\xA0  M I N D"
                 ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "social" },
-                    "GIT LINDKEDIN"
-                )
+                _react2.default.createElement("div", { className: "social" })
             );
         }
     }]);
