@@ -670,6 +670,7 @@ click = (e) =>{
         }
     }
 }
+
 render(){
 
     return (

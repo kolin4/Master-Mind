@@ -12,7 +12,8 @@
 #appReact {
     width: 40%;
     height: 100vh;
-    border: 5px solid black;
+    /*border: 5px solid black;*/
+    background-color: beige;
 
 }
 #temp {
@@ -27,11 +28,42 @@
 .title {
     width: 100%;
     height: 10%;
-    border: 5px solid red;
     display: flex;
     justify-content: center;
 
 }
+
+.m{
+    background-color: red;
+    padding: 5px;
+    color: white;
+}
+.a {
+    background-color: yellow;
+    padding: 5px;
+    color: black;
+}
+.s {
+    background-color: blue;
+    padding: 5px;
+    color: white;
+}
+.t{
+    background-color: green;
+    padding: 5px;
+    color: white;
+}
+.e {
+    background-color: orange;
+    padding: 5px;
+    color: white;
+}
+.r{
+    background-color: brown;
+    padding: 5px;
+    color: white;
+}
+
 .text {
     width: 80%;
     display: flex;
@@ -52,6 +84,9 @@
 }
 .mainBtn>button {
     flex:1;
+    border-radius: 5px;
+    outline: none;
+    font-weight: bold;
 }
 
 
@@ -63,14 +98,18 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid black;
+    margin-top: 5px;
 }
-
+.circleAnswer{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
 .circle {
     border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    border: 1px solid black;
+    height: 25px;
+    width: 25px;
 }
 .red{
     background-color: red;
@@ -97,11 +136,10 @@
 .mainBox{
     width: 100%;
     height: auto;
-    border: 1px solid green;
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 5px;
+    align-items: center;
 }
 
 .answer {
@@ -109,20 +147,15 @@
     display: flex;
     justify-content: space-around;
 }
-.circleAnswer{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid black;
-}
+
 .checked {
-    width: 20%;
+    width: 15%;
     height: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border-left: 1px solid black;
-    background-color: rgb(147, 147, 152);
+
+    background-color:#c9cac4;
 }
 .miniCircle {
     width: 20px;
@@ -137,4 +170,7 @@
 }
 .cross {
     background-color: white;
+}
+.focus {
+    border-style: dashed;
 }
