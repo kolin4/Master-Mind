@@ -41,6 +41,17 @@ class App extends React.Component{
                     check10: ['miniCircle','miniCircle','miniCircle','miniCircle']
                 },
                 counter1:0,
+                delItems1 : true,
+                delItems2 : false,
+                delItems3 : false,
+                delItems4 : false,
+                delItems5 : false,
+                delItems6 : false,
+                delItems7 : false,
+                delItems8 : false,
+                delItems9 : false,
+                delItems10 : false,
+
 
 
             }
@@ -144,42 +155,62 @@ check = (e) => {
         const userAnswer = this.state.answers.answer1.slice();
         const resultTab = this.state.checked.check1;
         name(resultTab, userAnswer);
+        this.state.delItems1 = false;
+        this.state.delItems2 = true;
     } else if ( this.state.answerNumber == 2 ){
         const userAnswer = this.state.answers.answer2.slice();
         const resultTab = this.state.checked.check2;
         name(resultTab, userAnswer);
+        this.state.delItems2 = false;
+        this.state.delItems3 = true;
     } else if ( this.state.answerNumber == 3 ){
         const userAnswer = this.state.answers.answer3.slice();
         const resultTab = this.state.checked.check3;
         name(resultTab, userAnswer);
+        this.state.delItems3 = false;
+        this.state.delItems4 = true;
     } else if ( this.state.answerNumber == 4 ){
         const userAnswer = this.state.answers.answer4.slice();
         const resultTab = this.state.checked.check4;
         name(resultTab, userAnswer);
+        this.state.delItems4 = false;
+        this.state.delItems5 = true;
     } else if ( this.state.answerNumber == 5 ){
         const userAnswer = this.state.answers.answer5.slice();
         const resultTab = this.state.checked.check5;
         name(resultTab, userAnswer);
+        this.state.delItems5 = false;
+        this.state.delItems6 = true;
     } else if ( this.state.answerNumber == 6 ){
         const userAnswer = this.state.answers.answer6.slice();
         const resultTab = this.state.checked.check6;
         name(resultTab, userAnswer);
+        this.state.delItems6 = false;
+        this.state.delItems7 = true;
     } else if ( this.state.answerNumber == 7 ){
         const userAnswer = this.state.answers.answer7.slice();
         const resultTab = this.state.checked.check7;
         name(resultTab, userAnswer);
+        this.state.delItems7 = false;
+        this.state.delItems8 = true;
     } else if ( this.state.answerNumber == 8 ){
         const userAnswer = this.state.answers.answer8.slice();
         const resultTab = this.state.checked.check8;
         name(resultTab, userAnswer);
+        this.state.delItems8 = false;
+        this.state.delItems9 = true;
     } else if ( this.state.answerNumber == 9 ){
         const userAnswer = this.state.answers.answer9.slice();
         const resultTab = this.state.checked.check9;
         name(resultTab, userAnswer);
+        this.state.delItems9 = false;
+        this.state.delItems10 = true;
     } else if ( this.state.answerNumber == 10 ){
         const userAnswer = this.state.answers.answer10.slice();
         const resultTab = this.state.checked.check10;
         name(resultTab, userAnswer);
+        this.state.delItems10 = false;
+
     }
 
     function name(resTab, usrAns) {
@@ -303,6 +334,7 @@ check = (e) => {
                 mixArray(resultTab) ;
     }
     this.setState({
+
         answerNumber:this.state.answerNumber + 1,
         counter1:0,
         disabledCheck:true
@@ -436,7 +468,208 @@ this.setState({
     disabledCheck
 })
 }
+click = (e) =>{
 
+    if ( this.state.answerNumber == 1 ){
+
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer1[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && (  e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer1[1] = 'white circleAnswer';
+            // this.state.answers.answer1[2] = 'white circleAnswer';
+            // this.state.answers.answer1[3] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer1[2] = 'white circleAnswer';
+            // this.state.answers.answer1[3] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true' )){
+            this.state.answers.answer1[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 2 ) {
+
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer2[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer2[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer2[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer2[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+        //////////////////////////  powyzej zmien e.target.dataset.ans na kazdy state osobno. przekaz staty do answero na do, inaczej nie zadziala
+    } else if ( this.state.answerNumber == 3 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer3[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && ( e.target.dataset.disable == 'true' )){
+            this.state.answers.answer3[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer3[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer3[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 4 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer4[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && ( e.target.dataset.disable == 'true' )){
+            this.state.answers.answer4[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer4[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer4[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    }
+    else if ( this.state.answerNumber == 5 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer5[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && (e.target.dataset.disable == 'true' )){
+            this.state.answers.answer5[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer5[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer5[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 6 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer6[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && ( e.target.dataset.disable == 'true' )){
+            this.state.answers.answer6[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer6[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer6[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 7 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer7[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer7[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer7[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer7[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 8 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer8[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && ( e.target.dataset.disable == 'true' )){
+            this.state.answers.answer8[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer8[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer8[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 9 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer9[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && (e.target.dataset.disable == 'true' )){
+            this.state.answers.answer9[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer9[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer9[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    } else if ( this.state.answerNumber == 10 ) {
+        if (( e.target.dataset.key == 1 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer10[0] = 'white circleAnswer';
+            this.state.counter1 = 0;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 2 ) && (e.target.dataset.disable == 'true')){
+            this.state.answers.answer10[1] = 'white circleAnswer';
+            this.state.counter1 = 1;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 3 ) && ( e.target.dataset.disable == 'true')){
+
+            this.state.answers.answer10[2] = 'white circleAnswer';
+            this.state.counter1 = 2;
+            this.forceUpdate();
+        } else if (( e.target.dataset.key == 4 ) && ( e.target.dataset.disable == 'true')){
+            this.state.answers.answer10[3] = 'white circleAnswer';
+            this.state.counter1 = 3;
+            this.forceUpdate();
+        }
+    }
+}
 render(){
 
     return (
@@ -455,16 +688,16 @@ render(){
                 <Circle action={this.takeColor} class='circle orange' color='orange circleAnswer'/>
                 <Circle action={this.takeColor} class='circle brown' color='brown circleAnswer'/>
             </div>
-                <Answer checked={this.state.checked.check1} class={this.state.answers.answer1}/>
-                <Answer checked={this.state.checked.check2} class={this.state.answers.answer2}/>
-                <Answer checked={this.state.checked.check3} class={this.state.answers.answer3}/>
-                <Answer checked={this.state.checked.check4} class={this.state.answers.answer4}/>
-                <Answer checked={this.state.checked.check5} class={this.state.answers.answer5}/>
-                <Answer checked={this.state.checked.check6} class={this.state.answers.answer6}/>
-                <Answer checked={this.state.checked.check7} class={this.state.answers.answer7}/>
-                <Answer checked={this.state.checked.check8} class={this.state.answers.answer8}/>
-                <Answer checked={this.state.checked.check9} class={this.state.answers.answer9}/>
-                <Answer checked={this.state.checked.check10} class={this.state.answers.answer10}/>
+                <Answer action={this.click} disabled={this.state.delItems1} checked={this.state.checked.check1} class={this.state.answers.answer1}/>
+                <Answer action={this.click} disabled={this.state.delItems2} checked={this.state.checked.check2} class={this.state.answers.answer2}/>
+                <Answer action={this.click} disabled={this.state.delItems3} checked={this.state.checked.check3} class={this.state.answers.answer3}/>
+                <Answer action={this.click} disabled={this.state.delItems4} checked={this.state.checked.check4} class={this.state.answers.answer4}/>
+                <Answer action={this.click} disabled={this.state.delItems5} checked={this.state.checked.check5} class={this.state.answers.answer5}/>
+                <Answer action={this.click} disabled={this.state.delItems6} checked={this.state.checked.check6} class={this.state.answers.answer6}/>
+                <Answer action={this.click} disabled={this.state.delItems7} checked={this.state.checked.check7} class={this.state.answers.answer7}/>
+                <Answer action={this.click} disabled={this.state.delItems8} checked={this.state.checked.check8} class={this.state.answers.answer8}/>
+                <Answer action={this.click} disabled={this.state.delItems9} checked={this.state.checked.check9} class={this.state.answers.answer9}/>
+                <Answer action={this.click} disabled={this.state.delItems10} checked={this.state.checked.check10} class={this.state.answers.answer10}/>
         </div>
     )
 }
