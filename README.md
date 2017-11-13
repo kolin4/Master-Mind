@@ -1,3 +1,8 @@
 # Master-Mind-
 [ React game ]
-IN PROGRESS.. Wait for it :)
+
+
+Instruction:
+
+click on palete colors to take color.
+Click color deleting exis color.
