@@ -68,13 +68,13 @@ body {
 }
 #appTemp {
     width: 40%;
-    height: 100vh;
+    height: 100%;
     border: 5px solid black;
 
 }
 #appReact {
     width: 300px;
-    height: 100vh;
+    height: 100%;
     /*border: 5px solid black;*/
     background-color: beige;
 
@@ -93,6 +93,7 @@ body {
     height: 10%;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 
 }
 
@@ -170,10 +171,11 @@ body {
     display: flex;
     width: 100%;
     height: 5%;
+    margin-top: 15px;
 }
 .mainBtn>button {
     flex:1;
-    border-radius: 5px;
+
     outline: none;
     font-weight: bold;
     background-color: whitesmoke;
@@ -192,9 +194,10 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .circleAnswer{
+    margin-top: 5px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -253,7 +256,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 5px;
-
+    align-items: center;
     background-color:#c9cac4;
 }
 .miniCircle {
@@ -278,7 +281,7 @@ body {
     justify-content: center;
     width: 100%;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 .socialIcon{
     transition: 0.4s;
