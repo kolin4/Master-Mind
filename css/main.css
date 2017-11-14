@@ -65,12 +65,13 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: beige;
 }
 #appTemp {
     width: 40%;
     height: 100%;
     border: 5px solid black;
-
+    
 }
 #appReact {
     width: 300px;
