@@ -112,58 +112,19 @@ reset = (e)=>{
 check = (e) => {
 
     const tabResult = this.state.tabResult.slice();
-    let resultTab;
-    let userAnswer;
 
-    if ( this.state.answerNumber == 1 ){
-        userAnswer = this.state.answers[0].slice();
-        resultTab = this.state.checked[0];
-        this.state.delItems[0] = false;
-        this.state.delItems[1] = true;
-    } else if ( this.state.answerNumber == 2 ){
-        userAnswer = this.state.answers[1].slice();
-        resultTab = this.state.checked[1];
-        this.state.delItems[1] = false;
-        this.state.delItems[2] = true;
-    } else if ( this.state.answerNumber == 3 ){
-        userAnswer = this.state.answers[2].slice();
-        resultTab = this.state.checked[2];
-        this.state.delItems[2] = false;
-        this.state.delItems[3] = true;
-    } else if ( this.state.answerNumber == 4 ){
-        userAnswer = this.state.answers[3].slice();
-        resultTab = this.state.checked[3];
-        this.state.delItems[3] = false;
-        this.state.delItems[4] = true;
-    } else if ( this.state.answerNumber == 5 ){
-        userAnswer = this.state.answers[4].slice();
-        resultTab = this.state.checked[4];
-        this.state.delItems[4] = false;
-        this.state.delItems[5] = true;
-    } else if ( this.state.answerNumber == 6 ){
-        userAnswer = this.state.answers[5].slice();
-        resultTab = this.state.checked[5];
-        this.state.delItems[5] = false;
-        this.state.delItems[6] = true;
-    } else if ( this.state.answerNumber == 7 ){
-        userAnswer = this.state.answers[6].slice();
-        resultTab = this.state.checked[6];
-        this.state.delItems[6] = false;
-        this.state.delItems[7] = true;
-    } else if ( this.state.answerNumber == 8 ){
-        userAnswer = this.state.answers[7].slice();
-        resultTab = this.state.checked[7];
-        this.state.delItems[7] = false;
-        this.state.delItems[8] = true;
-    } else if ( this.state.answerNumber == 9 ){
-        userAnswer = this.state.answers[8].slice();
-        resultTab = this.state.checked[8];
-        this.state.delItems[8] = false;
-        this.state.delItems[9] = true;
-    } else if ( this.state.answerNumber == 10 ){
-        userAnswer = this.state.answers[9].slice();
-        resultTab = this.state.checked[9];
+    // test //
+    let numberAnsw = this.state.answerNumber;
+
+
+    let resultTab = this.state.checked[numberAnsw - 1];
+    let userAnswer = this.state.answers[numberAnsw - 1].slice();
+
+    if ( numberAnsw == 9 ) {
         this.state.delItems[9] = false;
+    } else  {
+        this.state.delItems[ numberAnsw - 1 ] = false;
+        this.state.delItems[ numberAnsw ] = true;
     }
 
         name(resultTab, userAnswer);
@@ -276,11 +237,11 @@ check = (e) => {
             resultTab.unshift('black miniCircle');
         }
         function mixArray(arr) {
-                for (var i=0; i<arr.length; i++) { //wykonujemy pętlę po całej tablicy
-                        var j = Math.floor(Math.random() * arr.length); //losujemy wartość z przedziału 0 - tablica.length-1
-                        var temp = arr[i]; //pod zmienną temp podstawiamy wartość bieżącego indexu
-                        arr[i] = arr[j]; //pod bieżący index podstawiamy wartość z indexu wylosowanego
-                        arr[j] = temp; //pod wylosowany podstawiamy wartość z bieżącego indexu
+                for (var i=0; i<arr.length; i++) {
+                        var j = Math.floor(Math.random() * arr.length);
+                        var temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
                     }
                     return arr;
                 }
@@ -301,7 +262,7 @@ check = (e) => {
 takeColor = (e)=>{
 
     let counter1= this.state.counter1;
-    // Przykład pętli zamiast długiego bloku if/else
+
     for (let i = 0; i < 10; i++) {
         if ( this.state.answerNumber === i + 1 ){
             const answers = this.state.answers[i];
