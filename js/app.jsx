@@ -151,68 +151,62 @@ reset = (e)=>{
 }
 check = (e) => {
     const tabResult = this.state.tabResult.slice();
+    let resultTab;
+    let userAnswer;
+
     if ( this.state.answerNumber == 1 ){
-        const userAnswer = this.state.answers.answer1.slice();
-        const resultTab = this.state.checked.check1;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer1.slice();
+        resultTab = this.state.checked.check1;
         this.state.delItems1 = false;
         this.state.delItems2 = true;
     } else if ( this.state.answerNumber == 2 ){
-        const userAnswer = this.state.answers.answer2.slice();
-        const resultTab = this.state.checked.check2;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer2.slice();
+        resultTab = this.state.checked.check2;
         this.state.delItems2 = false;
         this.state.delItems3 = true;
     } else if ( this.state.answerNumber == 3 ){
-        const userAnswer = this.state.answers.answer3.slice();
-        const resultTab = this.state.checked.check3;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer3.slice();
+        resultTab = this.state.checked.check3;
         this.state.delItems3 = false;
         this.state.delItems4 = true;
     } else if ( this.state.answerNumber == 4 ){
-        const userAnswer = this.state.answers.answer4.slice();
-        const resultTab = this.state.checked.check4;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer4.slice();
+        resultTab = this.state.checked.check4;
         this.state.delItems4 = false;
         this.state.delItems5 = true;
     } else if ( this.state.answerNumber == 5 ){
-        const userAnswer = this.state.answers.answer5.slice();
-        const resultTab = this.state.checked.check5;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer5.slice();
+        resultTab = this.state.checked.check5;
         this.state.delItems5 = false;
         this.state.delItems6 = true;
     } else if ( this.state.answerNumber == 6 ){
-        const userAnswer = this.state.answers.answer6.slice();
-        const resultTab = this.state.checked.check6;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer6.slice();
+        resultTab = this.state.checked.check6;
         this.state.delItems6 = false;
         this.state.delItems7 = true;
     } else if ( this.state.answerNumber == 7 ){
-        const userAnswer = this.state.answers.answer7.slice();
-        const resultTab = this.state.checked.check7;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer7.slice();
+        resultTab = this.state.checked.check7;
         this.state.delItems7 = false;
         this.state.delItems8 = true;
     } else if ( this.state.answerNumber == 8 ){
-        const userAnswer = this.state.answers.answer8.slice();
-        const resultTab = this.state.checked.check8;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer8.slice();
+        esultTab = this.state.checked.check8;
         this.state.delItems8 = false;
         this.state.delItems9 = true;
     } else if ( this.state.answerNumber == 9 ){
-        const userAnswer = this.state.answers.answer9.slice();
-        const resultTab = this.state.checked.check9;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer9.slice();
+        resultTab = this.state.checked.check9;
         this.state.delItems9 = false;
         this.state.delItems10 = true;
     } else if ( this.state.answerNumber == 10 ){
-        const userAnswer = this.state.answers.answer10.slice();
-        const resultTab = this.state.checked.check10;
-        name(resultTab, userAnswer);
+        userAnswer = this.state.answers.answer10.slice();
+        resultTab = this.state.checked.check10;
+        // name(resultTab, userAnswer);
         this.state.delItems10 = false;
 
     }
-
+        name(resultTab, userAnswer);
     function name(resTab, usrAns) {
         let resultTab = resTab;
         let userAnswer = usrAns;
