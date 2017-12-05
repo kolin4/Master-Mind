@@ -65,6 +65,7 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: beige;
 }
 #appTemp {
     width: 40%;
