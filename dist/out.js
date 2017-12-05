@@ -10125,31 +10125,8 @@ var App = function (_React$Component) {
                 disabledReset: false,
                 disabledCheck: true,
                 answerNumber: 1,
-                answers: {
-                    answer1: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer2: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer3: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer4: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer5: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer6: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer7: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer8: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer9: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                    answer10: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']
-
-                },
-                checked: {
-                    check1: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check2: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check3: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check4: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check5: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check6: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check7: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check8: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check9: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                    check10: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle']
-                },
+                answers: [['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']],
+                checked: [['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle']],
                 counter1: 0
             });
         };
@@ -10157,117 +10134,74 @@ var App = function (_React$Component) {
         _this.reset = function (e) {
 
             var answerNumber = _this.state.answerNumber;
-
-            if (answerNumber == 1) {
-                _this.state.answers.answer1 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 2) {
-                _this.state.answers.answer2 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 3) {
-                _this.state.answers.answer3 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 4) {
-                _this.state.answers.answer4 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 5) {
-                _this.state.answers.answer5 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 6) {
-                _this.state.answers.answer6 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 7) {
-                _this.state.answers.answer7 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 8) {
-                _this.state.answers.answer8 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 9) {
-                _this.state.answers.answer9 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            } else if (answerNumber == 10) {
-                _this.state.answers.answer10 = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-                _this.state.counter1 = 0;
-                _this.forceUpdate();
-            }
+            _this.state.answers[answerNumber - 1] = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
+            _this.state.counter1 = 0;
+            _this.forceUpdate();
         };
 
         _this.check = function (e) {
+
             var tabResult = _this.state.tabResult.slice();
+            var resultTab = void 0;
+            var userAnswer = void 0;
+
             if (_this.state.answerNumber == 1) {
-                var userAnswer = _this.state.answers.answer1.slice();
-                var resultTab = _this.state.checked.check1;
-                name(resultTab, userAnswer);
-                _this.state.delItems1 = false;
-                _this.state.delItems2 = true;
+                userAnswer = _this.state.answers[0].slice();
+                resultTab = _this.state.checked[0];
+                _this.state.delItems[0] = false;
+                _this.state.delItems[1] = true;
             } else if (_this.state.answerNumber == 2) {
-                var _userAnswer = _this.state.answers.answer2.slice();
-                var _resultTab = _this.state.checked.check2;
-                name(_resultTab, _userAnswer);
-                _this.state.delItems2 = false;
-                _this.state.delItems3 = true;
+                userAnswer = _this.state.answers[1].slice();
+                resultTab = _this.state.checked[1];
+                _this.state.delItems[1] = false;
+                _this.state.delItems[2] = true;
             } else if (_this.state.answerNumber == 3) {
-                var _userAnswer2 = _this.state.answers.answer3.slice();
-                var _resultTab2 = _this.state.checked.check3;
-                name(_resultTab2, _userAnswer2);
-                _this.state.delItems3 = false;
-                _this.state.delItems4 = true;
+                userAnswer = _this.state.answers[2].slice();
+                resultTab = _this.state.checked[2];
+                _this.state.delItems[2] = false;
+                _this.state.delItems[3] = true;
             } else if (_this.state.answerNumber == 4) {
-                var _userAnswer3 = _this.state.answers.answer4.slice();
-                var _resultTab3 = _this.state.checked.check4;
-                name(_resultTab3, _userAnswer3);
-                _this.state.delItems4 = false;
-                _this.state.delItems5 = true;
+                userAnswer = _this.state.answers[3].slice();
+                resultTab = _this.state.checked[3];
+                _this.state.delItems[3] = false;
+                _this.state.delItems[4] = true;
             } else if (_this.state.answerNumber == 5) {
-                var _userAnswer4 = _this.state.answers.answer5.slice();
-                var _resultTab4 = _this.state.checked.check5;
-                name(_resultTab4, _userAnswer4);
-                _this.state.delItems5 = false;
-                _this.state.delItems6 = true;
+                userAnswer = _this.state.answers[4].slice();
+                resultTab = _this.state.checked[4];
+                _this.state.delItems[4] = false;
+                _this.state.delItems[5] = true;
             } else if (_this.state.answerNumber == 6) {
-                var _userAnswer5 = _this.state.answers.answer6.slice();
-                var _resultTab5 = _this.state.checked.check6;
-                name(_resultTab5, _userAnswer5);
-                _this.state.delItems6 = false;
-                _this.state.delItems7 = true;
+                userAnswer = _this.state.answers[5].slice();
+                resultTab = _this.state.checked[5];
+                _this.state.delItems[5] = false;
+                _this.state.delItems[6] = true;
             } else if (_this.state.answerNumber == 7) {
-                var _userAnswer6 = _this.state.answers.answer7.slice();
-                var _resultTab6 = _this.state.checked.check7;
-                name(_resultTab6, _userAnswer6);
-                _this.state.delItems7 = false;
-                _this.state.delItems8 = true;
+                userAnswer = _this.state.answers[6].slice();
+                resultTab = _this.state.checked[6];
+                _this.state.delItems[6] = false;
+                _this.state.delItems[7] = true;
             } else if (_this.state.answerNumber == 8) {
-                var _userAnswer7 = _this.state.answers.answer8.slice();
-                var _resultTab7 = _this.state.checked.check8;
-                name(_resultTab7, _userAnswer7);
-                _this.state.delItems8 = false;
-                _this.state.delItems9 = true;
+                userAnswer = _this.state.answers[7].slice();
+                resultTab = _this.state.checked[7];
+                _this.state.delItems[7] = false;
+                _this.state.delItems[8] = true;
             } else if (_this.state.answerNumber == 9) {
-                var _userAnswer8 = _this.state.answers.answer9.slice();
-                var _resultTab8 = _this.state.checked.check9;
-                name(_resultTab8, _userAnswer8);
-                _this.state.delItems9 = false;
-                _this.state.delItems10 = true;
+                userAnswer = _this.state.answers[8].slice();
+                resultTab = _this.state.checked[8];
+                _this.state.delItems[8] = false;
+                _this.state.delItems[9] = true;
             } else if (_this.state.answerNumber == 10) {
-                var _userAnswer9 = _this.state.answers.answer10.slice();
-                var _resultTab9 = _this.state.checked.check10;
-                name(_resultTab9, _userAnswer9);
-                _this.state.delItems10 = false;
+                userAnswer = _this.state.answers[9].slice();
+                resultTab = _this.state.checked[9];
+                _this.state.delItems[9] = false;
             }
 
+            name(resultTab, userAnswer);
             function name(resTab, usrAns) {
                 var resultTab = resTab;
                 var userAnswer = usrAns;
                 resultTab.splice(0, 4);
+
                 if (tabResult[0] == userAnswer[0]) {
                     var num = Math.random();
 
@@ -10392,115 +10326,19 @@ var App = function (_React$Component) {
         _this.takeColor = function (e) {
 
             var counter1 = _this.state.counter1;
-            if (_this.state.answerNumber == 1) {
-                var answers = _this.state.answers.answer1;
+            // Przykład pętli zamiast długiego bloku if/else
+            for (var i = 0; i < 10; i++) {
+                if (_this.state.answerNumber === i + 1) {
+                    var answers = _this.state.answers[i];
 
-                if (answers.indexOf(e.target.dataset.color) == -1) {
-                    answers.splice(counter1, 1);
-                    answers.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
+                    if (answers.indexOf(e.target.dataset.color) == -1) {
+                        answers.splice(counter1, 1);
+                        answers.splice(_this.state.counter1, 0, e.target.dataset.color);
+                        counter1++;
 
-                    _this.forceUpdate();
-                    answers.splice(4);
-                }
-            } else if (_this.state.answerNumber == 2) {
-                var _answers = _this.state.answers.answer2;
-
-                if (_answers.indexOf(e.target.dataset.color) == -1) {
-                    _answers.splice(counter1, 1);
-                    _answers.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers.splice(4);
-                }
-            } else if (_this.state.answerNumber == 3) {
-                var _answers2 = _this.state.answers.answer3;
-
-                if (_answers2.indexOf(e.target.dataset.color) == -1) {
-                    _answers2.splice(counter1, 1);
-                    _answers2.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers2.splice(4);
-                }
-            } else if (_this.state.answerNumber == 4) {
-                var _answers3 = _this.state.answers.answer4;
-
-                if (_answers3.indexOf(e.target.dataset.color) == -1) {
-                    _answers3.splice(counter1, 1);
-                    _answers3.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers3.splice(4);
-                }
-            } else if (_this.state.answerNumber == 5) {
-                var _answers4 = _this.state.answers.answer5;
-
-                if (_answers4.indexOf(e.target.dataset.color) == -1) {
-                    _answers4.splice(counter1, 1);
-                    _answers4.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers4.splice(4);
-                }
-            } else if (_this.state.answerNumber == 6) {
-                var _answers5 = _this.state.answers.answer6;
-
-                if (_answers5.indexOf(e.target.dataset.color) == -1) {
-                    _answers5.splice(counter1, 1);
-                    _answers5.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers5.splice(4);
-                }
-            } else if (_this.state.answerNumber == 7) {
-                var _answers6 = _this.state.answers.answer7;
-
-                if (_answers6.indexOf(e.target.dataset.color) == -1) {
-                    _answers6.splice(counter1, 1);
-                    _answers6.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers6.splice(4);
-                }
-            } else if (_this.state.answerNumber == 8) {
-                var _answers7 = _this.state.answers.answer8;
-
-                if (_answers7.indexOf(e.target.dataset.color) == -1) {
-                    _answers7.splice(counter1, 1);
-                    _answers7.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers7.splice(4);
-                }
-            } else if (_this.state.answerNumber == 9) {
-                var _answers8 = _this.state.answers.answer9;
-
-                if (_answers8.indexOf(e.target.dataset.color) == -1) {
-                    _answers8.splice(counter1, 1);
-                    _answers8.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers8.splice(4);
-                }
-            } else if (_this.state.answerNumber == 10) {
-                var _answers9 = _this.state.answers.answer10;
-
-                if (_answers9.indexOf(e.target.dataset.color) == -1) {
-                    _answers9.splice(counter1, 1);
-                    _answers9.splice(_this.state.counter1, 0, e.target.dataset.color);
-                    counter1++;
-
-                    _this.forceUpdate();
-                    _answers9.splice(4);
+                        _this.forceUpdate();
+                        answers.splice(4);
+                    }
                 }
             }
             var disabledCheck = _this.state.disabledCheck;
@@ -10515,202 +10353,15 @@ var App = function (_React$Component) {
 
         _this.click = function (e) {
 
-            if (_this.state.answerNumber == 1) {
-
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer1[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer1[1] = 'white circleAnswer';
-                    // this.state.answers.answer1[2] = 'white circleAnswer';
-                    // this.state.answers.answer1[3] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer1[2] = 'white circleAnswer';
-                    // this.state.answers.answer1[3] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer1[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 2) {
-
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer2[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer2[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer2[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer2[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-                //////////////////////////  powyzej zmien e.target.dataset.ans na kazdy state osobno. przekaz staty do answero na do, inaczej nie zadziala
-            } else if (_this.state.answerNumber == 3) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer3[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer3[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer3[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer3[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 4) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer4[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer4[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer4[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer4[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 5) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer5[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer5[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer5[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer5[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 6) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer6[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer6[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer6[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer6[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 7) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer7[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer7[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer7[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer7[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 8) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer8[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer8[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer8[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer8[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 9) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer9[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer9[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer9[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer9[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
-                }
-            } else if (_this.state.answerNumber == 10) {
-                if (e.target.dataset.key == 1 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer10[0] = 'white circleAnswer';
-                    _this.state.counter1 = 0;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 2 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer10[1] = 'white circleAnswer';
-                    _this.state.counter1 = 1;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 3 && e.target.dataset.disable == 'true') {
-
-                    _this.state.answers.answer10[2] = 'white circleAnswer';
-                    _this.state.counter1 = 2;
-                    _this.forceUpdate();
-                } else if (e.target.dataset.key == 4 && e.target.dataset.disable == 'true') {
-                    _this.state.answers.answer10[3] = 'white circleAnswer';
-                    _this.state.counter1 = 3;
-                    _this.forceUpdate();
+            for (var i = 0; i < 10; i++) {
+                for (var j = 0; j < 4; j++) {
+                    if (_this.state.answerNumber === i + 1) {
+                        if (e.target.dataset.key == j + 1 && e.target.dataset.disable == 'true') {
+                            _this.state.answers[i][j] = 'white circleAnswer';
+                            _this.state.counter1 = j;
+                            _this.forceUpdate();
+                        }
+                    }
                 }
             }
         };
@@ -10721,43 +10372,11 @@ var App = function (_React$Component) {
             disabledReset: true,
             disabledCheck: true,
             answerNumber: 1,
-            answers: {
-                answer1: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer2: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer3: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer4: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer5: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer6: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer7: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer8: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer9: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'],
-                answer10: ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']
+            answers: [['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']],
 
-            },
-            checked: {
-                check1: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check2: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check3: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check4: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check5: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check6: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check7: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check8: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check9: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'],
-                check10: ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle']
-            },
+            checked: [['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle']],
             counter1: 0,
-            delItems1: true,
-            delItems2: false,
-            delItems3: false,
-            delItems4: false,
-            delItems5: false,
-            delItems6: false,
-            delItems7: false,
-            delItems8: false,
-            delItems9: false,
-            delItems10: false
-
+            delItems: [true, false, false, false, false, false, false, false, false, false]
         };
         return _this;
     }
@@ -10765,6 +10384,7 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
 
             return _react2.default.createElement(
                 'div',
@@ -10787,16 +10407,9 @@ var App = function (_React$Component) {
                     _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle orange', color: 'orange circleAnswer' }),
                     _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle brown', color: 'brown circleAnswer' })
                 ),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems1, checked: this.state.checked.check1, 'class': this.state.answers.answer1 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems2, checked: this.state.checked.check2, 'class': this.state.answers.answer2 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems3, checked: this.state.checked.check3, 'class': this.state.answers.answer3 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems4, checked: this.state.checked.check4, 'class': this.state.answers.answer4 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems5, checked: this.state.checked.check5, 'class': this.state.answers.answer5 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems6, checked: this.state.checked.check6, 'class': this.state.answers.answer6 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems7, checked: this.state.checked.check7, 'class': this.state.answers.answer7 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems8, checked: this.state.checked.check8, 'class': this.state.answers.answer8 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems9, checked: this.state.checked.check9, 'class': this.state.answers.answer9 }),
-                _react2.default.createElement(_answer.Answer, { action: this.click, disabled: this.state.delItems10, checked: this.state.checked.check10, 'class': this.state.answers.answer10 }),
+                this.state.answers.map(function (answer, i) {
+                    return _react2.default.createElement(_answer.Answer, { action: _this2.click, disabled: _this2.state.delItems[i], checked: _this2.state.checked[i], 'class': _this2.state.answers[i], key: i });
+                }),
                 _react2.default.createElement(
                     'div',
                     { className: 'footer' },
