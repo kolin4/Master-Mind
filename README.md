@@ -16,7 +16,7 @@ White cirlce means you take coorect color but its not on good place.
 
 4 black circles - YOU WIN
 You have 10 attempts.
-
+TRY ONLINE : https://kolin4.github.io/Master-Mind/
 
 GOOD LUCK!!!
 
