@@ -10137,9 +10137,6 @@ var App = function (_React$Component) {
         _this.reset = function (e) {
 
             var answerNumber = _this.state.answerNumber;
-            // this.state.answers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
-            // this.state.counter1 = 0;
-            // this.forceUpdate();
             var tempStateAnswers = [].concat(_toConsumableArray(_this.state.answers));
             tempStateAnswers[answerNumber - 1] = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
             _this.setState({
@@ -10155,9 +10152,11 @@ var App = function (_React$Component) {
 
             // test //
             var numberAnsw = _this.state.answerNumber;
+            var tabStateChecked = [].concat(_toConsumableArray(_this.state.checked));
+            var tabStateAnswers = [].concat(_toConsumableArray(_this.state.answers));
 
-            var resultTab = _this.state.checked[numberAnsw - 1];
-            var userAnswer = _this.state.answers[numberAnsw - 1].slice();
+            var resultTab = tabStateChecked[numberAnsw - 1];
+            var userAnswer = tabStateAnswers[numberAnsw - 1].slice();
 
             if (numberAnsw == 9) {
                 _this.state.delItems[9] = false;
@@ -10265,13 +10264,6 @@ var App = function (_React$Component) {
                     }
                 }
 
-                if (tabResult[0] == userAnswer[0] && tabResult[1] == userAnswer[1] && tabResult[2] == userAnswer[2] && tabResult[3] == userAnswer[3]) {
-                    alert('WYGRALES !!!');
-                    resultTab.unshift('black miniCircle');
-                    resultTab.unshift('black miniCircle');
-                    resultTab.unshift('black miniCircle');
-                    resultTab.unshift('black miniCircle');
-                }
                 function mixArray(arr) {
                     for (var i = 0; i < arr.length; i++) {
                         var j = Math.floor(Math.random() * arr.length);
@@ -10284,8 +10276,87 @@ var App = function (_React$Component) {
 
                 mixArray(resultTab);
             }
-            _this.setState({
+            // check if player lose game
 
+            if (numberAnsw == 10) {
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+
+                try {
+                    for (var _iterator = userAnswer[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var elem = _step.value;
+
+
+                        if (tabResult.indexOf(elem) < 0) {
+                            alert('Game Over');
+                            _this.setState({
+                                checked: tabStateChecked,
+                                disabledCheck: true,
+                                disabledReset: true
+                            });
+                        }
+                    }
+                } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+                    } finally {
+                        if (_didIteratorError) {
+                            throw _iteratorError;
+                        }
+                    }
+                }
+            }
+            //  check if player wins 
+            var win = true;
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+                for (var _iterator2 = userAnswer[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var _elem = _step2.value;
+
+                    if (tabResult.indexOf(_elem) === -1) {
+                        win = false;
+                    }
+                }
+            } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
+                    }
+                } finally {
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
+                    }
+                }
+            }
+
+            if (win) {
+                alert('Congratulations! You WIN');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                _this.setState({
+                    disabledCheck: true,
+                    disabledReset: true,
+                    newGamePressed: false
+
+                });
+            }
+            _this.setState({
+                checked: tabStateChecked,
+                answers: tabStateAnswers,
                 answerNumber: _this.state.answerNumber + 1,
                 counter1: 0,
                 disabledCheck: true

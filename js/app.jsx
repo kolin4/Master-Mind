@@ -106,9 +106,6 @@ start = (e) =>{
 reset = (e)=>{
 
     let answerNumber = this.state.answerNumber;
-    // this.state.answers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
-    // this.state.counter1 = 0;
-    // this.forceUpdate();
     let tempStateAnswers = [...this.state.answers];
     tempStateAnswers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
     this.setState({
@@ -119,15 +116,17 @@ reset = (e)=>{
 
 }
 check = (e) => {
-
+    
     const tabResult = this.state.tabResult.slice();
 
     // test //
     let numberAnsw = this.state.answerNumber;
+    const tabStateChecked = [...this.state.checked];
+    const tabStateAnswers = [...this.state.answers];
 
+    let resultTab = tabStateChecked[numberAnsw - 1];
+    let userAnswer = tabStateAnswers[numberAnsw - 1].slice();
 
-    let resultTab = this.state.checked[numberAnsw - 1];
-    let userAnswer = this.state.answers[numberAnsw - 1].slice();
 
     if ( numberAnsw == 9 ) {
         this.state.delItems[9] = false;
@@ -238,13 +237,7 @@ check = (e) => {
             }
         }
 
-        if ((  tabResult[0] == userAnswer[0] ) && (  tabResult[1] == userAnswer[1] ) && (  tabResult[2] == userAnswer[2] ) && ( tabResult[3] == userAnswer[3] )){
-            alert('WYGRALES !!!');
-            resultTab.unshift('black miniCircle');
-            resultTab.unshift('black miniCircle');
-            resultTab.unshift('black miniCircle');
-            resultTab.unshift('black miniCircle');
-        }
+        
         function mixArray(arr) {
                 for (var i=0; i<arr.length; i++) {
                         var j = Math.floor(Math.random() * arr.length);
@@ -258,8 +251,45 @@ check = (e) => {
 
                 mixArray(resultTab) ;
     }
-    this.setState({
+        // check if player lose game
 
+        if (numberAnsw == 10) {
+            for (let elem of userAnswer){
+    
+                if (tabResult.indexOf(elem) < 0){
+                    alert('Game Over')
+                    this.setState({
+                        checked:tabStateChecked,
+                        disabledCheck:true,
+                        disabledReset:true
+                    })
+                }
+            
+            }
+        }
+        //  check if player wins 
+        let win = true;
+        for (let elem of userAnswer){
+            if (tabResult.indexOf(elem) === -1){
+                win=false;
+            }
+        }
+        if (win){
+            alert('Congratulations! You WIN');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                this.setState({
+                    disabledCheck:true,
+                    disabledReset:true,
+                    newGamePressed:false
+    
+                })
+        }
+    this.setState({
+        checked:tabStateChecked,
+        answers:tabStateAnswers,
         answerNumber:this.state.answerNumber + 1,
         counter1:0,
         disabledCheck:true
