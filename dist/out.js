@@ -10095,6 +10095,8 @@ var _answer = __webpack_require__(189);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10124,6 +10126,7 @@ var App = function (_React$Component) {
                 disabledStart: false,
                 disabledReset: false,
                 disabledCheck: true,
+                newGamePressed: true,
                 answerNumber: 1,
                 answers: [['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']],
                 checked: [['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle']],
@@ -10134,9 +10137,13 @@ var App = function (_React$Component) {
         _this.reset = function (e) {
 
             var answerNumber = _this.state.answerNumber;
-            _this.state.answers[answerNumber - 1] = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-            _this.state.counter1 = 0;
-            _this.forceUpdate();
+            var tempStateAnswers = [].concat(_toConsumableArray(_this.state.answers));
+            tempStateAnswers[answerNumber - 1] = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
+            _this.setState({
+                answers: tempStateAnswers,
+                counter1: 0,
+                disabledCheck: true
+            });
         };
 
         _this.check = function (e) {
@@ -10145,9 +10152,11 @@ var App = function (_React$Component) {
 
             // test //
             var numberAnsw = _this.state.answerNumber;
+            var tabStateChecked = [].concat(_toConsumableArray(_this.state.checked));
+            var tabStateAnswers = [].concat(_toConsumableArray(_this.state.answers));
 
-            var resultTab = _this.state.checked[numberAnsw - 1];
-            var userAnswer = _this.state.answers[numberAnsw - 1].slice();
+            var resultTab = tabStateChecked[numberAnsw - 1];
+            var userAnswer = tabStateAnswers[numberAnsw - 1].slice();
 
             if (numberAnsw == 9) {
                 _this.state.delItems[9] = false;
@@ -10255,13 +10264,6 @@ var App = function (_React$Component) {
                     }
                 }
 
-                if (tabResult[0] == userAnswer[0] && tabResult[1] == userAnswer[1] && tabResult[2] == userAnswer[2] && tabResult[3] == userAnswer[3]) {
-                    alert('WYGRALES !!!');
-                    resultTab.unshift('black miniCircle');
-                    resultTab.unshift('black miniCircle');
-                    resultTab.unshift('black miniCircle');
-                    resultTab.unshift('black miniCircle');
-                }
                 function mixArray(arr) {
                     for (var i = 0; i < arr.length; i++) {
                         var j = Math.floor(Math.random() * arr.length);
@@ -10274,8 +10276,87 @@ var App = function (_React$Component) {
 
                 mixArray(resultTab);
             }
-            _this.setState({
+            // check if player lose game
 
+            if (numberAnsw == 10) {
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+
+                try {
+                    for (var _iterator = userAnswer[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var elem = _step.value;
+
+
+                        if (tabResult.indexOf(elem) < 0) {
+                            alert('Game Over');
+                            _this.setState({
+                                checked: tabStateChecked,
+                                disabledCheck: true,
+                                disabledReset: true
+                            });
+                        }
+                    }
+                } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+                    } finally {
+                        if (_didIteratorError) {
+                            throw _iteratorError;
+                        }
+                    }
+                }
+            }
+            //  check if player wins 
+            var win = true;
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+                for (var _iterator2 = userAnswer[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var _elem = _step2.value;
+
+                    if (tabResult.indexOf(_elem) === -1) {
+                        win = false;
+                    }
+                }
+            } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
+                    }
+                } finally {
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
+                    }
+                }
+            }
+
+            if (win) {
+                alert('Congratulations! You WIN');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                resultTab.unshift('black miniCircle');
+                _this.setState({
+                    disabledCheck: true,
+                    disabledReset: true,
+                    newGamePressed: false
+
+                });
+            }
+            _this.setState({
+                checked: tabStateChecked,
+                answers: tabStateAnswers,
                 answerNumber: _this.state.answerNumber + 1,
                 counter1: 0,
                 disabledCheck: true
@@ -10283,42 +10364,56 @@ var App = function (_React$Component) {
         };
 
         _this.takeColor = function (e) {
-
+            if (!_this.state.newGamePressed) {
+                return;
+            }
             var counter1 = _this.state.counter1;
+            var answersState = [].concat(_toConsumableArray(_this.state.answers));
+            var disabledCheck = _this.state.disabledCheck;
+            disabledCheck = false;
 
             for (var i = 0; i < 10; i++) {
                 if (_this.state.answerNumber === i + 1) {
-                    var answers = _this.state.answers[i];
-
-                    if (answers.indexOf(e.target.dataset.color) == -1) {
-                        answers.splice(counter1, 1);
-                        answers.splice(_this.state.counter1, 0, e.target.dataset.color);
+                    if (answersState[i].indexOf(e.target.dataset.color) == -1) {
+                        answersState[i].splice(counter1, 1);
+                        answersState[i].splice(_this.state.counter1, 0, e.target.dataset.color);
                         counter1++;
-
-                        _this.forceUpdate();
-                        answers.splice(4);
+                        answersState[i].splice(4);
                     }
                 }
             }
-            var disabledCheck = _this.state.disabledCheck;
-            if (_this.state.counter1 >= 3) {
-                disabledCheck = false;
+
+            if (answersState[_this.state.answerNumber - 1].indexOf('white circleAnswer') !== -1) {
+                disabledCheck = true;
             }
+
             _this.setState({
                 counter1: counter1,
-                disabledCheck: disabledCheck
+                disabledCheck: disabledCheck,
+                answers: answersState
             });
         };
 
-        _this.click = function (e) {
-
+        _this.removeColor = function (e) {
+            var answersState = [].concat(_toConsumableArray(_this.state.answers));
+            var counterState = _this.state.counter1;
+            var disabledCheck = _this.state.disabledCheck;
             for (var i = 0; i < 10; i++) {
                 for (var j = 0; j < 4; j++) {
                     if (_this.state.answerNumber === i + 1) {
                         if (e.target.dataset.key == j + 1 && e.target.dataset.disable == 'true') {
-                            _this.state.answers[i][j] = 'white circleAnswer';
-                            _this.state.counter1 = j;
-                            _this.forceUpdate();
+                            answersState[i][j] = 'white circleAnswer';
+                            counterState = j;
+                            disabledCheck = true;
+
+                            if (answersState[i].indexOf('white circleAnswer') === -1) {
+                                disabledCheck: false;
+                            }
+                            _this.setState({
+                                answers: answersState,
+                                counter1: counterState,
+                                disabledCheck: disabledCheck
+                            });
                         }
                     }
                 }
@@ -10330,6 +10425,7 @@ var App = function (_React$Component) {
             disabledStart: false,
             disabledReset: true,
             disabledCheck: true,
+            newGamePressed: false,
             answerNumber: 1,
             answers: [['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']],
 
@@ -10345,6 +10441,9 @@ var App = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            var tabOfColors = ['red', 'yellow', 'blue', 'green', 'orange', 'brown'].map(function (elem, index) {
+                return _react2.default.createElement(_circle.Circle, { key: index, action: _this2.takeColor, 'class': 'circle ' + elem, color: elem + ' circleAnswer' });
+            });
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
@@ -10359,15 +10458,10 @@ var App = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'chooseBox' },
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle red', color: 'red circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle yellow', color: 'yellow circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle blue', color: 'blue circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle green', color: 'green circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle orange', color: 'orange circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle brown', color: 'brown circleAnswer' })
+                    tabOfColors
                 ),
                 this.state.answers.map(function (answer, i) {
-                    return _react2.default.createElement(_answer.Answer, { action: _this2.click, disabled: _this2.state.delItems[i], checked: _this2.state.checked[i], 'class': _this2.state.answers[i], key: i });
+                    return _react2.default.createElement(_answer.Answer, { action: _this2.removeColor, disabled: _this2.state.delItems[i], checked: _this2.state.checked[i], 'class': _this2.state.answers[i], key: i });
                 }),
                 _react2.default.createElement(
                     'div',
