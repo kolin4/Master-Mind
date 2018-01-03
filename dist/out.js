@@ -10364,6 +10364,7 @@ var App = function (_React$Component) {
         };
 
         _this.takeColor = function (e) {
+
             if (!_this.state.newGamePressed) {
                 return;
             }
@@ -10447,7 +10448,7 @@ var App = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
-                _react2.default.createElement(_title.Title, null),
+                _react2.default.createElement(_title.Title, { action: this.takeColor }),
                 _react2.default.createElement(
                     'div',
                     { className: 'mainBtn' },
@@ -22995,34 +22996,34 @@ var Title = function (_React$Component) {
                     { className: "text" },
                     _react2.default.createElement(
                         "span",
-                        { className: "m" },
+                        { onClick: this.props.action, "data-color": "red circleAnswer", className: "m" },
                         "M"
                     ),
                     " ",
                     _react2.default.createElement(
                         "span",
-                        { className: "a" },
+                        { onClick: this.props.action, "data-color": "yellow circleAnswer", className: "a" },
                         "A"
                     ),
                     " ",
                     _react2.default.createElement(
                         "span",
-                        { className: "s" },
+                        { onClick: this.props.action, "data-color": "blue circleAnswer", className: "s" },
                         "S"
                     ),
                     _react2.default.createElement(
                         "span",
-                        { className: "t" },
+                        { "data-color": "green circleAnswer", onClick: this.props.action, className: "t" },
                         "T"
                     ),
                     _react2.default.createElement(
                         "span",
-                        { className: "e" },
+                        { "data-color": "orange circleAnswer", onClick: this.props.action, className: "e" },
                         "E"
                     ),
                     _react2.default.createElement(
                         "span",
-                        { className: "r" },
+                        { "data-color": "brown circleAnswer", onClick: this.props.action, className: "r" },
                         "R"
                     ),
                     "\xA0  M I N D"

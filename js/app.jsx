@@ -299,6 +299,7 @@ check = (e) => {
 }
 
 takeColor = (e)=>{
+    
     if (!this.state.newGamePressed){return}
     let counter1= this.state.counter1;
     const answersState = [...this.state.answers];
@@ -362,7 +363,7 @@ render(){
     });
     return (
         <div className='container'>
-            <Title />
+            <Title action={this.takeColor}/>
             <div className='mainBtn'>
                 <Button disabled={this.state.disabledStart} action={this.start} name='New Game' />
                 <Button disabled={this.state.disabledReset} action={this.reset} name= 'Reset line' />
