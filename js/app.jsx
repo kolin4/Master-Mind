@@ -14,6 +14,7 @@ class App extends React.Component{
                 disabledStart: false,
                 disabledReset:true,
                 disabledCheck:true,
+                newGamePressed:false,
                 answerNumber:1,
                 answers: [
                   ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
@@ -71,6 +72,7 @@ start = (e) =>{
         disabledStart: false,
         disabledReset:false,
         disabledCheck:true,
+        newGamePressed:true,
         answerNumber:1,
         answers: [
           ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'],
@@ -104,9 +106,16 @@ start = (e) =>{
 reset = (e)=>{
 
     let answerNumber = this.state.answerNumber;
-    this.state.answers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
-    this.state.counter1 = 0;
-    this.forceUpdate();
+    // this.state.answers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+    // this.state.counter1 = 0;
+    // this.forceUpdate();
+    let tempStateAnswers = [...this.state.answers];
+    tempStateAnswers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+    this.setState({
+        answers:tempStateAnswers,
+        counter1: 0,
+        disabledCheck:true
+    })
 
 }
 check = (e) => {
@@ -260,41 +269,54 @@ check = (e) => {
 }
 
 takeColor = (e)=>{
-
+    if (!this.state.newGamePressed){return}
     let counter1= this.state.counter1;
-
+    const answersState = [...this.state.answers];
+    let disabledCheck = this.state.disabledCheck;
+    disabledCheck= false;
+    
     for (let i = 0; i < 10; i++) {
         if ( this.state.answerNumber === i + 1 ){
-            const answers = this.state.answers[i];
-
-            if (answers.indexOf(e.target.dataset.color) == -1 ) {
-                answers.splice(counter1,1);
-                answers.splice(this.state.counter1,0, e.target.dataset.color);
+            if (answersState[i].indexOf(e.target.dataset.color) == -1 ) {
+                answersState[i].splice(counter1,1);
+                answersState[i].splice(this.state.counter1,0, e.target.dataset.color);
                 counter1++;
-
-                this.forceUpdate();
-                answers.splice(4);
+                answersState[i].splice(4);       
             }
-        }
+        }   
     }
-let disabledCheck = this.state.disabledCheck;
-if ( this.state.counter1 >= 3 ){
-    disabledCheck = false;
-}
-this.setState({
-    counter1,
-    disabledCheck
-})
-}
-click = (e) =>{
+    
+    if ( answersState[this.state.answerNumber -1].indexOf('white circleAnswer') !== -1){        
+        disabledCheck= true;
+    } 
 
+    this.setState({
+        counter1,
+        disabledCheck : disabledCheck,
+        answers:answersState
+    })
+
+}
+removeColor = (e) =>{
+    const answersState = [...this.state.answers];
+    let counterState = this.state.counter1;
+    let disabledCheck= this.state.disabledCheck;
     for (let i = 0; i < 10; i++){
         for (let j = 0; j < 4; j++ ){
           if (this.state.answerNumber === i + 1) {
             if (( e.target.dataset.key == j + 1) && ( e.target.dataset.disable == 'true')){
-              this.state.answers[i][j] = 'white circleAnswer';
-              this.state.counter1 = j;
-              this.forceUpdate();
+                answersState[i][j] = 'white circleAnswer';
+                counterState = j;
+                disabledCheck= true;
+
+                if ( answersState[i].indexOf('white circleAnswer') === -1){
+                    disabledCheck: false
+                }
+              this.setState({
+                  answers:answersState,
+                  counter1:counterState,
+                  disabledCheck
+              })
             }
           }
         }
@@ -303,7 +325,11 @@ click = (e) =>{
 }
 
 render(){
-
+    const tabOfColors= ['red','yellow','blue','green','orange','brown'].map((elem,index)=>{
+        return (
+            <Circle key={index} action={this.takeColor} class={`circle ${elem}`} color={`${elem} circleAnswer`} />
+        )
+    });
     return (
         <div className='container'>
             <Title />
@@ -313,15 +339,10 @@ render(){
                 <Button disabled={this.state.disabledCheck} action={this.check} name='Check' />
             </div>
             <div className='chooseBox'>
-                <Circle action={this.takeColor} class='circle red' color='red circleAnswer'/>
-                <Circle action={this.takeColor} class='circle yellow' color='yellow circleAnswer'/>
-                <Circle action={this.takeColor} class='circle blue' color='blue circleAnswer'/>
-                <Circle action={this.takeColor} class='circle green' color='green circleAnswer'/>
-                <Circle action={this.takeColor} class='circle orange' color='orange circleAnswer'/>
-                <Circle action={this.takeColor} class='circle brown' color='brown circleAnswer'/>
+                {tabOfColors}
             </div>
                 {this.state.answers.map((answer, i) => {
-                    return <Answer action={this.click} disabled={this.state.delItems[i]} checked={this.state.checked[i]} class={this.state.answers[i]} key={i}/>
+                    return <Answer action={this.removeColor} disabled={this.state.delItems[i]} checked={this.state.checked[i]} class={this.state.answers[i]} key={i}/>
                 })}
 
             <div className='footer'>

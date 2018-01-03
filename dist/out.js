@@ -10095,6 +10095,8 @@ var _answer = __webpack_require__(189);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10124,6 +10126,7 @@ var App = function (_React$Component) {
                 disabledStart: false,
                 disabledReset: false,
                 disabledCheck: true,
+                newGamePressed: true,
                 answerNumber: 1,
                 answers: [['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']],
                 checked: [['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle'], ['miniCircle', 'miniCircle', 'miniCircle', 'miniCircle']],
@@ -10134,9 +10137,16 @@ var App = function (_React$Component) {
         _this.reset = function (e) {
 
             var answerNumber = _this.state.answerNumber;
-            _this.state.answers[answerNumber - 1] = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
-            _this.state.counter1 = 0;
-            _this.forceUpdate();
+            // this.state.answers[answerNumber - 1] = ['white circleAnswer','white circleAnswer','white circleAnswer','white circleAnswer'];
+            // this.state.counter1 = 0;
+            // this.forceUpdate();
+            var tempStateAnswers = [].concat(_toConsumableArray(_this.state.answers));
+            tempStateAnswers[answerNumber - 1] = ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'];
+            _this.setState({
+                answers: tempStateAnswers,
+                counter1: 0,
+                disabledCheck: true
+            });
         };
 
         _this.check = function (e) {
@@ -10283,42 +10293,56 @@ var App = function (_React$Component) {
         };
 
         _this.takeColor = function (e) {
-
+            if (!_this.state.newGamePressed) {
+                return;
+            }
             var counter1 = _this.state.counter1;
+            var answersState = [].concat(_toConsumableArray(_this.state.answers));
+            var disabledCheck = _this.state.disabledCheck;
+            disabledCheck = false;
 
             for (var i = 0; i < 10; i++) {
                 if (_this.state.answerNumber === i + 1) {
-                    var answers = _this.state.answers[i];
-
-                    if (answers.indexOf(e.target.dataset.color) == -1) {
-                        answers.splice(counter1, 1);
-                        answers.splice(_this.state.counter1, 0, e.target.dataset.color);
+                    if (answersState[i].indexOf(e.target.dataset.color) == -1) {
+                        answersState[i].splice(counter1, 1);
+                        answersState[i].splice(_this.state.counter1, 0, e.target.dataset.color);
                         counter1++;
-
-                        _this.forceUpdate();
-                        answers.splice(4);
+                        answersState[i].splice(4);
                     }
                 }
             }
-            var disabledCheck = _this.state.disabledCheck;
-            if (_this.state.counter1 >= 3) {
-                disabledCheck = false;
+
+            if (answersState[_this.state.answerNumber - 1].indexOf('white circleAnswer') !== -1) {
+                disabledCheck = true;
             }
+
             _this.setState({
                 counter1: counter1,
-                disabledCheck: disabledCheck
+                disabledCheck: disabledCheck,
+                answers: answersState
             });
         };
 
-        _this.click = function (e) {
-
+        _this.removeColor = function (e) {
+            var answersState = [].concat(_toConsumableArray(_this.state.answers));
+            var counterState = _this.state.counter1;
+            var disabledCheck = _this.state.disabledCheck;
             for (var i = 0; i < 10; i++) {
                 for (var j = 0; j < 4; j++) {
                     if (_this.state.answerNumber === i + 1) {
                         if (e.target.dataset.key == j + 1 && e.target.dataset.disable == 'true') {
-                            _this.state.answers[i][j] = 'white circleAnswer';
-                            _this.state.counter1 = j;
-                            _this.forceUpdate();
+                            answersState[i][j] = 'white circleAnswer';
+                            counterState = j;
+                            disabledCheck = true;
+
+                            if (answersState[i].indexOf('white circleAnswer') === -1) {
+                                disabledCheck: false;
+                            }
+                            _this.setState({
+                                answers: answersState,
+                                counter1: counterState,
+                                disabledCheck: disabledCheck
+                            });
                         }
                     }
                 }
@@ -10330,6 +10354,7 @@ var App = function (_React$Component) {
             disabledStart: false,
             disabledReset: true,
             disabledCheck: true,
+            newGamePressed: false,
             answerNumber: 1,
             answers: [['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer'], ['white circleAnswer', 'white circleAnswer', 'white circleAnswer', 'white circleAnswer']],
 
@@ -10345,6 +10370,9 @@ var App = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            var tabOfColors = ['red', 'yellow', 'blue', 'green', 'orange', 'brown'].map(function (elem, index) {
+                return _react2.default.createElement(_circle.Circle, { key: index, action: _this2.takeColor, 'class': 'circle ' + elem, color: elem + ' circleAnswer' });
+            });
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
@@ -10359,15 +10387,10 @@ var App = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'chooseBox' },
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle red', color: 'red circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle yellow', color: 'yellow circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle blue', color: 'blue circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle green', color: 'green circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle orange', color: 'orange circleAnswer' }),
-                    _react2.default.createElement(_circle.Circle, { action: this.takeColor, 'class': 'circle brown', color: 'brown circleAnswer' })
+                    tabOfColors
                 ),
                 this.state.answers.map(function (answer, i) {
-                    return _react2.default.createElement(_answer.Answer, { action: _this2.click, disabled: _this2.state.delItems[i], checked: _this2.state.checked[i], 'class': _this2.state.answers[i], key: i });
+                    return _react2.default.createElement(_answer.Answer, { action: _this2.removeColor, disabled: _this2.state.delItems[i], checked: _this2.state.checked[i], 'class': _this2.state.answers[i], key: i });
                 }),
                 _react2.default.createElement(
                     'div',
